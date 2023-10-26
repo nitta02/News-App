@@ -1,8 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_news_app/controller/news_controller.dart';
+import 'package:getx_news_app/view/widgets/custom_drawer.dart';
+import 'package:getx_news_app/view/widgets/custom_page.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
+  final controller = Get.put(NewsAppController());
+  final pageConroller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +38,61 @@ class MainScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('HOME'),
+          title: const Text('HOME'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                controller.themeMode();
+              },
+              icon: Icon(
+                controller.iconthemeData(),
+              ),
+            )
+          ],
+        ),
+        drawer: const CustomDrawer(),
+        body: PageView(
+          controller: pageConroller,
+          onPageChanged: (value) {
+            controller.bottomNavFunc(currentIndex: value);
+          },
+          children: [
+            CustomPages(),
+            CustomPages(),
+          ],
+        ),
+        bottomNavigationBar: GetBuilder<NewsAppController>(
+          builder: (controller) {
+            return SalomonBottomBar(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 5,
+              ),
+              currentIndex: controller.index,
+              onTap: (p0) {
+                controller.bottomNavFunc(currentIndex: p0);
+                pageConroller.jumpToPage(p0);
+              },
+              items: [
+                SalomonBottomBarItem(
+                  icon: const Icon(CupertinoIcons.home),
+                  title: const Text(
+                    'HOME',
+                  ),
+                  unselectedColor: Colors.white,
+                  selectedColor: Colors.black,
+                ),
+                SalomonBottomBarItem(
+                  icon: const Icon(Icons.category_outlined),
+                  title: const Text(
+                    'CATEGORY',
+                  ),
+                  unselectedColor: Colors.white,
+                  selectedColor: Colors.black,
+                )
+              ],
+            );
+          },
         ),
       ),
     );

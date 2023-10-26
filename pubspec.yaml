@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.6
   path: ^1.8.3
+  get_storage: ^2.1.1
+  salomon_bottom_bar: ^3.3.2
 
 dev_dependencies:
   flutter_test:
