@@ -23,15 +23,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.grey[500],
+          // backgroundColor: Colors.blueGrey[600],
           elevation: 0.0,
         ),
         fontFamily: 'Lato',
         drawerTheme: DrawerThemeData(
-          backgroundColor: Colors.grey[400],
+          backgroundColor: Colors.blueGrey[600],
           elevation: 15.0,
         ),
-        scaffoldBackgroundColor: Colors.grey[500],
+        // scaffoldBackgroundColor: Colors.blueGrey[600],
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(

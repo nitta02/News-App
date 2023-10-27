@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_news_app/controller/news_controller.dart';
+import 'package:getx_news_app/view/widgets/home_page_screen.dart';
+import 'package:getx_news_app/view/widgets/category_page.dart';
 import 'package:getx_news_app/view/widgets/custom_drawer.dart';
-import 'package:getx_news_app/view/widgets/custom_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainScreen extends StatelessWidget {
@@ -56,9 +57,9 @@ class MainScreen extends StatelessWidget {
           onPageChanged: (value) {
             controller.bottomNavFunc(currentIndex: value);
           },
-          children: [
-            CustomPages(),
-            CustomPages(),
+          children: const [
+            HomePageScreen(),
+            CategoryPage(),
           ],
         ),
         bottomNavigationBar: GetBuilder<NewsAppController>(
@@ -79,7 +80,7 @@ class MainScreen extends StatelessWidget {
                   title: const Text(
                     'HOME',
                   ),
-                  unselectedColor: Colors.white,
+                  unselectedColor: Colors.blue,
                   selectedColor: Colors.black,
                 ),
                 SalomonBottomBarItem(
@@ -87,7 +88,7 @@ class MainScreen extends StatelessWidget {
                   title: const Text(
                     'CATEGORY',
                   ),
-                  unselectedColor: Colors.white,
+                  unselectedColor: Colors.blue,
                   selectedColor: Colors.black,
                 )
               ],
