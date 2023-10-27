@@ -1,3 +1,5 @@
+// ignore_for_file: empty_statements, dead_code
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_news_app/constants/category_constants.dart';
@@ -56,7 +58,7 @@ class _CategoryPageState extends State<CategoryPage>
                           return CustomPages(
                               list: snapshot.data as List<ApiModel>);
                         } else {
-                          return Center(
+                          return const Center(
                             child: CircularProgressIndicator(),
                           );
                         }

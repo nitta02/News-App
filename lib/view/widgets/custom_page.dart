@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:getx_news_app/model/test_model.dart';
 
@@ -37,7 +39,7 @@ class CustomPages extends StatelessWidget {
                 width: double.infinity,
                 child: Text(
                   '${list[index].title}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
                 ),
@@ -47,7 +49,7 @@ class CustomPages extends StatelessWidget {
         },
       );
     } else {
-      return Center(
+      return const Center(
         child: CircularProgressIndicator(),
       );
     }
